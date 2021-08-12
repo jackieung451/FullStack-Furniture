@@ -11,6 +11,7 @@ import HistoryTwo from "../images/img52.jpeg";
 import HistoryThree from "../images/img54.jpg";
 import { useTranslation } from "react-i18next";
 import "../translations/i18n";
+import IconBanner from "../images/history-long.png";
 // import "../styles.css";
 import i18n from "../translations/i18n";
 
@@ -20,21 +21,29 @@ const Section = styled.section`
   ${"" /* padding-top: 20rem; */}
 
   @media screen and (min-width: 1024px) {
-    margin-top: 12rem;
+    padding-top: 14rem;
+  }
+  @media screen and (max-width: 768px) {
+    padding-top: 8rem;
   }
 
-  @media screen and (min-width: 769px) and (max-width: 1023px) {
+  ${
+    "" /* @media screen and (min-width: 769px) and (max-width: 1023px) {
     margin-top: 5rem;
+  } */
+  }
+  @media screen and (max-width: 540px) {
+    padding-top: 1.5rem;
+  }
+
+  @media screen and (max-width: 360px) {
+    padding-top: 0rem;
   }
 
   ${
     "" /* @media screen and (min-width: 769px) and (max-width: 1023px) {
     margin-top: 0rem;
   } */
-  }
-
-  @media screen and (max-width: 768px) {
-    margin-top: 7rem;
   }
 
   ${
@@ -47,19 +56,49 @@ const Section = styled.section`
 `;
 
 const Banner = styled.div`
-  height: 25vh;
+  ${
+    "" /* height: 25vh;
   width: 100vw;
+  margin-bottom: 0rem; */
+  }
+  ${"" /* max-height: 7rem; */}
+  min-width: 20rem;
+  ${"" /* margin-top: 0rem; */}
+  padding-top: 2rem;
   margin-bottom: 0rem;
 
-  @media screen and (max-width: 768px) {
+  ${
+    "" /* @media screen and (max-width: 768px) {
+    padding-bottom: 0rem;
+  } */
+  }
+
+  @media screen and (max-width: 375px) {
+    margin-bottom: 0rem;
+  }
+
+  @media screen and (max-width: 360px) {
+    margin-bottom: 0rem;
     padding-bottom: 0rem;
   }
 
   img {
     position: absolute;
-    height: 45vh;
+    height: 34.5vh;
     width: 100vw;
     object-fit: cover;
+
+    @media screen and (min-width: 1024px) {
+      height: 32.5vh;
+    }
+
+    @media screen and (max-width: 768px) {
+      height: 28.5vh;
+    }
+
+    @media screen and (min-width: 361px) (max-width: 540px) {
+      height: 20.5vh;
+    }
   }
 `;
 
@@ -73,6 +112,29 @@ const HeroContent = styled.div`
   color: #fff;
 ;
 
+img{
+  ${"" /* margin-top: 6.75rem; */}
+  ${"" /* max-height: 7rem; */}
+  z-index: 100000;
+  height: 55vh;
+    width: 100vw;
+    object-fit: contain;
+    padding-top: 3rem;
+
+    @media screen and (min-width: 1024px) {
+      padding-top: 5rem;
+      ${"" /* padding-bottom: 4.5rem; */}
+
+  }
+
+    @media screen and (max-width: 768px) {
+      padding-top: 0rem;
+
+      
+  }
+
+}
+
 h1{
    font-size: clamp(3rem, 8vw, 2rem);
   font-weight: 400;
@@ -81,6 +143,7 @@ h1{
   display: flex;
   justify-content: center;
   margin-top: 5rem;
+  
   @media screen and (max-width: 375px) {
       ${
         "" /* padding-left: 4rem;
@@ -123,7 +186,7 @@ const InfoRow = styled.div`
   margin: 0 200px 0 200px;
 
   @media screen and (max-width: 768px) {
-    margin-bottom: 1rem;
+    margin-bottom: 0rem;
     display: grid;
     grid-template-columns: 1fr;
     flex-direction: column;
@@ -170,6 +233,11 @@ const ImageContainer = styled.div`
   text-content: center;
   padding: 0 0 2rem 0;
   flex-wrap: wrap;
+  ${
+    "" /* @media screen and (max-width: 280px) {
+    padding: 0 0 0rem 0;
+  } */
+  }
 `;
 
 const ImageWrap = styled.div`
@@ -249,6 +317,7 @@ const HistoryBackground = () => {
         <img src={HomeTwo} />
         <HeroContent>
           <h1>{t("history")}</h1>
+          <img src={IconBanner} />
         </HeroContent>
       </Banner>
       <Section>

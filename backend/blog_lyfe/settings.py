@@ -40,12 +40,20 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'django_summernote',
-    'blog',
+    # 'tinymce',
     'ckeditor',
     'ckeditor_uploader',
+    'blog',
+    
 ]
 
-CKEDITOR_UPLOAD_PATH = 'ckeditor/'
+CKEDITOR_UPLOAD_PATH = "photos/"
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        'update' : ['image', 'update', 'table', 'HorizontalRule', 'Smiley', 'SpecialChar']
+    },
+}
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
@@ -130,7 +138,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, '/build/static/')
+    os.path.join(BASE_DIR, 'build/static/')
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
@@ -147,18 +155,44 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 SUMMERNOTE_THEME = 'bs4'
 
+# SUMMERNOTE_CONFIG = {
+#     'attachment_upload_to': my_custom_upload_to_func(),
+# }
+
 SUMMERNOTE_CONFIG = {
     'toolbar': [
         ['insert', ['link', 'picture', 'video']],
     ],
 }
 
+TINYMCE_DEFAULT_CONFIG = {
+    'cleanup_on_startup': True,
+    'custom_undo_redo_levels': 20,
+    'selector': 'textarea',
+    'theme': 'silver',
+    'plugins': '''
+            textcolor save link image media preview codesample contextmenu
+            table code lists fullscreen  insertdatetime  nonbreaking
+            contextmenu directionality searchreplace wordcount visualblocks
+            visualchars code fullscreen autolink lists  charmap print  hr
+            anchor pagebreak
+            ''',
+    'toolbar1': '''
+            fullscreen preview bold italic underline | fontselect,
+            fontsizeselect  | forecolor backcolor | alignleft alignright |
+            aligncenter alignjustify | indent outdent | bullist numlist table |
+            | link image media | codesample |
+            ''',
+    'toolbar2': '''
+            visualblocks visualchars |
+            charmap hr pagebreak nonbreaking anchor |  code |
+            ''',
+    'contextmenu': 'formats | link image',
+    'menubar': True,
+    'statusbar': True,
+}
+
 CORS_ORIGIN_ALLOW_ALL = True
 
 
-CKEDITOR_CONFIGS = {
-    'default': {
-        'toolbar': 'full',
-        'update' : ['image', 'update', 'table', 'HorizontalRule', 'Smiley', 'SpecialChar']
-    },
-}
+

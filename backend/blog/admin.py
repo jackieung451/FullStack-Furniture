@@ -6,6 +6,9 @@ from .models import BlogPost
 #     extra = 0
 #     model = Image
 
+# class BlogPostAdmin(admin.ModelAdmin):
+#     form = BlogAdminForm
+
 class BlogPostAdmin(SummernoteModelAdmin):
     exclude = ('slug', )
     list_display = ('id', 'title', 'category', 'date_created')

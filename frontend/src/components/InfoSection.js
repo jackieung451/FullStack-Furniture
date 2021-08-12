@@ -110,6 +110,11 @@ const ColumnRight = styled.div`
       height: 90%;
       margin-top: 0rem;
     }
+    @media screen and (max-width: 768px) {
+      width: 90%;
+      height: 90%;
+      padding-top: 3rem;
+    }
   }
 `;
 

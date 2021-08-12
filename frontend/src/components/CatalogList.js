@@ -10,8 +10,8 @@ import { Link } from "react-router-dom";
 // import { Button } from "./Button";
 import { useTranslation } from "react-i18next";
 import "../translations/i18n";
-import IconBanner from "../images/tab-header-catalog.png";
-import BackLine from "../images/tab-header-bar.png";
+import IconBanner from "../images/catalog-long.png";
+// import BackLine from "../images/tab-header-bar.png";
 // const Section = styled.section`
 //   width: 100%;
 //   height: 100%;
@@ -574,35 +574,64 @@ ${"" /* padding-top: 15rem; */}
     justify-content: center;
   }
   @media screen and (min-width: 1024px) {
-   margin-top: 18rem;
+  padding-top: 12rem;
   }
   @media screen and (min-width: 768px) {
-    margin-top: 18rem;
+    margin-top: 8rem;
   }
 
-  @media screen and (min-width: 361px) (max-width: 540px) {
-    margin-top: 26rem;
+  @media screen and (max-width: 411px) {
+    padding-top: 1.5rem;
+    }
 
   @media screen and (max-width: 360px) {
-    margin-top: 10rem;
+    margin-top: 3.5rem;
   }
 `;
 
 const Banner = styled.div`
-  max-height: 7rem;
+  ${"" /* max-height: 7rem; */}
   min-width: 20rem;
-  margin-top: 0rem;
+  padding-top: 2rem;
   margin-bottom: 5rem;
 
-  @media screen and (max-width: 768px) {
+ 
+
+  ${
+    "" /* @media screen and (max-width: 768px) {
     padding-bottom: 0rem;
+  } */
   }
+
+  @media screen and (max-width: 375px) {
+    margin-bottom: 7rem;
+    }
+
+    @media screen and (max-width: 360px) {
+    margin-bottom: 0rem;
+    padding-bottom: 0rem;
+    }
 
   img {
     position: absolute;
-    height: 58.5vh;
+
+     height: 34.5vh; 
     width: 100vw;
     object-fit: cover;
+
+     @media screen and (min-width: 1024px) {
+      height: 32.5vh;
+  } 
+    
+
+    @media screen and (max-width: 768px) {
+      height: 28.5vh;
+    }
+
+    @media screen and (min-width: 361px) (max-width: 540px) {
+      height: 20.5vh;
+
+  
   }
 `;
 
@@ -622,8 +651,8 @@ const HeroContent = styled.div`
   max-width: 1600px;
   width: calc{100% - 100px};
   color: #fff;
-
-
+  
+  
   
 
   img{
@@ -631,10 +660,18 @@ const HeroContent = styled.div`
     height: 55vh;
     width: 100vw;
     object-fit: contain;
-    padding-top: 8rem;
+    padding-top: 3rem;
+
+    @media screen and (min-width: 1024px) {
+      padding-top: 5rem;
+      ${"" /* padding-bottom: 4.5rem; */}
+
+  }
 
     @media screen and (max-width: 768px) {
       padding-top: 0rem;
+
+      
   }
   }
 ;
@@ -647,7 +684,7 @@ h1{
   text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
   display: flex;
   justify-content: center;
-  margin-top: 5rem;
+  margin-top: 3rem;
   ${"" /* margin-bottom: 0.8rem; */}
   ${
     "" /* dislay: flex;
@@ -839,8 +876,9 @@ const CatalogList = ({ reverse }) => {
           <h1>{t("catalogbutton")}</h1>
           <img src={IconBanner} />
         </HeroContent>
-        <Image src={BackLine} />
+        {/* <Image src={BackLine} /> */}
       </Banner>
+      <br />
       <Section
         style={{
           backgroundColor: "#212121",

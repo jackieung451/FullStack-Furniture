@@ -1,6 +1,30 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import styled from "styled-components";
+
+const Section = styled.div`
+  min-height: 100vh;
+  padding-left: 1rem;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  color: #fff;
+`;
+
+const Title = styled.div`
+  padding-top: 5rem;
+  color: #fff;
+`;
+
+const Category = styled.div`
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: #fff;
+`;
+
+const Content = styled.div`
+  color: #fff;
+`;
 
 const BlogDetail = (props) => {
   const [blog, setBlog] = useState({});
@@ -30,25 +54,39 @@ const BlogDetail = (props) => {
   };
 
   return (
-    <div className="container mt-3">
-      <h1 className="display-2">{blog.title}</h1>
-      <h2 className="text-muted mt-3">
-        Category: {capitalizeFirstLetter(blog.category)}
-      </h2>
-      <h4>
-        {blog.month} {blog.day}
-      </h4>
-      <div
-        className="mt-5 mb-5"
-        dangerouslySetInnerHTML={{ __html: blog.content }}
-      />
-      <hr />
-      <p className="lead mb-5">
-        <Link to="/blog" className="font-weight-bold">
-          Back to Blogs
-        </Link>
-      </p>
-    </div>
+    // <div
+    //   style={{
+    //     backgroundColor: "#212121",
+    //   }}
+    // >
+    <Section
+      style={{
+        backgroundColor: "#212121",
+      }}
+    >
+      <Title>
+        <h1>{blog.title}</h1>
+      </Title>
+      <Category>
+        <h2 className="text-white">
+          Category: {capitalizeFirstLetter(blog.category)}
+        </h2>
+        <h4 className="text-white">
+          {blog.month} {blog.day}
+        </h4>
+        <img width="200" height="250" src={blog.upload} alt="thumbnail" />
+      </Category>
+      <Content>
+        <div className="text-white" dangerouslySetInnerHTML={createBlog()} />
+        <br />
+        <p>
+          <Link to="/blog" className="font-weight-bold">
+            Back to Blogs
+          </Link>
+        </p>
+      </Content>
+    </Section>
+    // </div>
   );
 };
 

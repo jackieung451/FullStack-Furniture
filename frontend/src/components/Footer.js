@@ -12,6 +12,8 @@ import ImageLogo2 from "../images/brand-color-alt-white.png";
 const Section = styled.section`
   background: #323232;
   color: #fff;
+  margin-bottom: 0;
+  padding-bottom: 0;
   width: 100%;
   padding-top: 0;
   margin-top: 0;
@@ -159,18 +161,35 @@ const FooterTop = styled.div`
 
   @media screen and (max-width: 768px) {
     ${"" /* flex-direction: column; */}
-    max-width: 70vw;
+    max-width: 100vw;
     text-align: center;
-    ${"" /* min-width: 300px; */}
-    margin-left: 11.5rem;
+    min-width: 20rem;
+    margin-left: 14rem;
     padding: 0 0rem;
     object-fit: cover;
   }
 
+  @media screen and (max-width: 540px) {
+    margin-left: 6.9rem;
+  }
+  @media screen and (max-width: 414px) {
+    margin-left: 2.9rem;
+  }
+  @media screen and (max-width: 375px) {
+    margin-left: 1.7rem;
+  }
+  @media screen and (max-width: 360px) {
+    margin-left: 1.25rem;
+  }
+  @media screen and (max-width: 320px) {
+    margin-left: 0rem;
+  }
   @media screen and (max-width: 280px) {
-    text-align: center;
+    ${
+      "" /* text-align: center;
     min-width: 300px;
-    padding-right: 2rem;
+    padding-right: 2rem; */
+    }
   }
 `;
 const TopRow = styled.div`
@@ -184,7 +203,9 @@ const TopRow = styled.div`
   height: 100px;
   text-align: center;
   width: 100vw;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 280px) {
+    margin-right: 2.5rem;
+    ${"" /* padding-bottom: 20rem; */}
     ${"" /* flex-direction: column; */}
 
     ${"" /* min-width: 300px; */}
@@ -209,6 +230,10 @@ const Quote = styled.div`
     ${"" /* margin: 0rem 100px; */}
     padding-left: 4rem;
     padding-right: 4rem;
+  }
+  @media screen and (max-width: 280px) {
+    max-width: 50px;
+    padding: 0 4rem 0 1rem;
   }
 
   h4 {
@@ -399,6 +424,12 @@ const Copyright = styled.div`
   margin-left: 30rem;
   margin-right: 40rem;
   padding-bottom: 1rem;
+
+  ${
+    "" /* @media screen and (max-width: 414px) {
+    padding-right: 40rem;
+  } */
+  }
 `;
 
 const Rights = styled.div`
@@ -407,6 +438,28 @@ const Rights = styled.div`
   padding-right: 15rem;
   min-width: 700px;
   margin-top: 3.5rem;
+  flex-wrap: wrap;
+  text-align: center;
+
+  @media screen and (max-width: 540px) {
+    margin-right: 40rem;
+  }
+
+  @media screen and (max-width: 414px) {
+    margin-right: 45rem;
+    min-width: 20px;
+  }
+
+  @media screen and (max-width: 375px) {
+    margin-right: 50rem;
+  }
+
+  @media screen and (max-width: 320px) {
+    margin-right: 52rem;
+  }
+  @media screen and (max-width: 280px) {
+    margin-right: 55rem;
+  }
 `;
 
 const BottomLogo = styled.div`
@@ -418,6 +471,9 @@ const BottomLogo = styled.div`
     margin-left: 27rem;
     ${"" /* margin-bottom: 4rem; */}
     ${"" /* margin-bottom: 2rem; */}
+  }
+  @media screen and (max-width: 414px) {
+    margin-right: 12rem;
   }
 `;
 
