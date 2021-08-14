@@ -742,6 +742,34 @@ max-width: 700px;
     color: #fff;
   }
 
+  a {
+    background: #53565a;
+  white-space: nowrap;
+  outline: none;
+  border: none;
+  min-width: 100px;
+  max-width: 100px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: ${({ big }) => (big ? "16px 40px" : "14px 24px")};
+  color: #fff;
+  font-size: ${({ big }) => (big ? "20px" : "14px")};
+  border-radius: ${({ round }) => (round ? "50px" : "0px")}
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+  text-align: center;
+  max-width: 700px;
+  display: flex;
+  justify-content: center;
+  }
+
+
   @media screen and (max-width: 768px) {
     margin-bottom: 0rem;
     padding-left: 2rem;
@@ -901,9 +929,13 @@ const CatalogList = ({ reverse }) => {
           >
             <h1>{t("catalog1title")}</h1>
             <p>{t("catalog1")}</p>
-            <Button to="/homes" primary="true">
+            <a
+              href="http://kiosk.coasteramer.com/kiosk/dealers/store.aspx?cno=103115"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               {t("catalogbutton")}
-            </Button>
+            </a>
           </ColumnLeft>
           <ColumnRight reverse={reverse}>
             <img
@@ -926,9 +958,13 @@ const CatalogList = ({ reverse }) => {
           >
             <h1>{t("catalog2title")}</h1>
             <p>{t("catalog2")}</p>
-            <Button to="/homes" primary="true">
+            <a
+              href="http://kiosk.coasteramer.com/kiosk/dealers/store.aspx?cno=103115"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               {t("catalogbutton")}
-            </Button>
+            </a>
           </ColumnLeft>
           <ColumnRight reverse={reverse}>
             <img
@@ -951,9 +987,13 @@ const CatalogList = ({ reverse }) => {
           >
             <h1>{t("catalog3title")}</h1>
             <p>{t("catalog3")}</p>
-            <Button to="/homes" primary="true">
+            <a
+              href="http://kiosk.coasteramer.com/kiosk/dealers/store.aspx?cno=103115"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               {t("catalogbutton")}
-            </Button>
+            </a>
           </ColumnLeft>
           <ColumnRight reverse={reverse}>
             <img
@@ -976,9 +1016,13 @@ const CatalogList = ({ reverse }) => {
           >
             <h1>{t("catalog4title")}</h1>
             <p>{t("catalog4")}</p>
-            <Button to="/homes" primary="true">
+            <a
+              href="http://kiosk.coasteramer.com/kiosk/dealers/store.aspx?cno=103115"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               {t("catalogbutton")}
-            </Button>
+            </a>
           </ColumnLeft>
           <ColumnRight reverse={reverse}>
             <img
@@ -1001,9 +1045,13 @@ const CatalogList = ({ reverse }) => {
           >
             <h1>{t("catalog5title")}</h1>
             <p>{t("catalog5")}</p>
-            <Button to="/homes" primary="true">
+            <a
+              href="http://kiosk.coasteramer.com/kiosk/dealers/store.aspx?cno=103115"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               {t("catalogbutton")}
-            </Button>
+            </a>
           </ColumnLeft>
           <ColumnRight reverse={reverse}>
             <img

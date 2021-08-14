@@ -85,6 +85,33 @@ const InfoWrap = styled.div`
 
   height: 70%;
 
+  a {
+    background: #53565a;
+  white-space: nowrap;
+  outline: none;
+  border: none;
+  min-width: 100px;
+  max-width: 100px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: ${({ big }) => (big ? "16px 40px" : "14px 24px")};
+  color: #fff;
+  font-size: ${({ big }) => (big ? "20px" : "14px")};
+  border-radius: ${({ round }) => (round ? "50px" : "0px")}
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+  text-align: center;
+  max-width: 700px;
+  display: flex;
+  justify-content: center;
+  }
+
   button {
     background: #53565a;
     white-space: nowrap;
@@ -249,16 +276,21 @@ const Listings = () => {
                 `}
               />
               <h2>{t("listing1")}</h2>
-              <InfoLink to="/homes" alt="home">
-                <button
+              <a
+                href="http://kiosk.coasteramer.com/kiosk/dealers/store.aspx?cno=103115"
+                rel="noopener noreferrer"
+                target="_blank"
+                alt="home"
+              >
+                {/* <button
                   onClick={() => {
                     history.push("/home");
                   }}
-                >
-                  {t("view")}
-                </button>
+                > */}
+                {t("view")}
+                {/* </button> */}
                 {/* <Arrow /> */}
-              </InfoLink>
+              </a>
             </InfoWrap>
             <InfoWrap
               data-aos="zoom-out-down"
@@ -282,16 +314,20 @@ const Listings = () => {
                 `}
               />
               <h2>{t("listing2")}</h2>
-              <InfoLink to="/homes">
-                <button
+              <a
+                href="http://kiosk.coasteramer.com/kiosk/dealers/store.aspx?cno=103115"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                {/* <button
                   onClick={() => {
                     history.push("/home");
                   }}
-                >
-                  {t("view")}
-                </button>
+                > */}
+                {t("view")}
+                {/* </button> */}
                 {/* <Arrow /> */}
-              </InfoLink>
+              </a>
             </InfoWrap>
             <InfoWrap
               data-aos="zoom-out-down"
@@ -315,16 +351,21 @@ const Listings = () => {
                 `}
               />
               <h2>{t("listing3")}</h2>
-              <InfoLink to="/homes" alt="home">
-                <button
+              <a
+                href="http://kiosk.coasteramer.com/kiosk/dealers/store.aspx?cno=103115"
+                rel="noopener noreferrer"
+                target="_blank"
+                alt="home"
+              >
+                {/* <button
                   onClick={() => {
                     history.push("/home");
                   }}
-                >
-                  {t("view")}
-                </button>
+                > */}
+                {t("view")}
+                {/* </button> */}
                 {/* <Arrow /> */}
-              </InfoLink>
+              </a>
             </InfoWrap>
           </InfoRow>
         </Container>
