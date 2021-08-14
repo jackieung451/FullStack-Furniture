@@ -573,9 +573,16 @@ ${"" /* padding-top: 15rem; */}
     flex-direction: column;
     justify-content: center;
   }
-  @media screen and (min-width: 1024px) {
+
+
+  @media screen and (min-width: 1401px) {
   padding-top: 12rem;
   }
+
+  @media screen and (min-width: 769px) and (max-width: 1400px) {
+    padding-top: 1rem;
+  }
+
   @media screen and (min-width: 768px) {
     margin-top: 8rem;
   }

@@ -18,12 +18,19 @@ const Title = styled.div`
 
 const Category = styled.div`
   margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0rem;
   color: #fff;
 `;
 
 const Content = styled.div`
   color: #fff;
+  word-wrap: break-word;
+`;
+
+const BackButton = styled.div`
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  margin-bottom: 0;
 `;
 
 const BlogDetail = (props) => {
@@ -74,16 +81,18 @@ const BlogDetail = (props) => {
         <h4 className="text-white">
           {blog.month} {blog.day}
         </h4>
-        <img width="200" height="250" src={blog.upload} alt="thumbnail" />
+        <img width="200" height="250" src={blog.upload} alt="photo" />
       </Category>
       <Content>
         <div className="text-white" dangerouslySetInnerHTML={createBlog()} />
         <br />
-        <p>
-          <Link to="/blog" className="font-weight-bold">
-            Back to Blogs
-          </Link>
-        </p>
+        <BackButton>
+          <p>
+            <Link to="/blog" className="font-weight-bold">
+              Back to Blogs
+            </Link>
+          </p>
+        </BackButton>
       </Content>
     </Section>
     // </div>

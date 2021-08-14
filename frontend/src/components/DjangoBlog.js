@@ -39,13 +39,18 @@ const Section = styled.div`
   ${"" /* padding-left: 1rem; */}
   margin-bottom: 0;
   padding-bottom: 0;
-  padding-top: 4rem;
+  ${"" /* padding-top: 4rem; */}
 
-  @media screen and (min-width: 1024px) {
-    padding-top: 14rem;
+  @media screen and (min-width: 1401px) {
+    padding-top: 18rem;
   }
+
+  @media screen and (min-width: 769px) and (max-width: 1400px) {
+    padding-top: 13rem;
+  }
+
   @media screen and (max-width: 768px) {
-    padding-top: 8rem;
+    padding-top: 12rem;
   }
 
   ${
@@ -54,11 +59,11 @@ const Section = styled.div`
   } */
   }
   @media screen and (max-width: 540px) {
-    padding-top: 1.5rem;
+    padding-top: 8.5rem;
   }
 
   @media screen and (max-width: 360px) {
-    padding-top: 0rem;
+    padding-top: 7rem;
   }
 
   ${
@@ -156,7 +161,7 @@ h1{
   text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
   display: flex;
   justify-content: center;
-  margin-top: 5rem;
+  margin-top: 3rem;
   
   @media screen and (max-width: 375px) {
       ${
@@ -285,7 +290,7 @@ const Blog = () => {
         />
       </div> */}
 
-        <div className="container mt-13">
+        <div className="container mt-0">
           <div className="p-4 p-md-5 text-white rounded bg-dark">
             <div className="col-md-6 px-0">
               <h1 className="display-4 font-italic">{featuredBlog.title}</h1>

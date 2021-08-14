@@ -7,16 +7,29 @@ const Section = styled.div`
   min-height: 100vh;
   padding-left: 1rem;
   padding-right: 1rem;
+  padding-bottom: 0;
+  margin-bottom: 0;
+
   ${"" /* padding-bottom: 5rem; */}
 `;
 
 const Content = styled.div`
   padding-left: 1rem;
   padding-right: 1rem;
+  padding-bottom: 0;
+  margin-bottom: 0;
 `;
 
 const Title = styled.div`
   padding-top: 5rem;
+  padding-bottom: 0;
+  margin-bottom: 0;
+`;
+
+const BackButton = styled.div`
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  margin-bottom: 0;
 `;
 
 const Category = (props) => {
@@ -62,7 +75,7 @@ const Category = (props) => {
           <div className="col p-4 d-flex flex-column position-static">
             <strong>{capitalizeFirstLetter(blogPost.category)}</strong>
             <h3 className="mb-0">{blogPost.title}</h3>
-            <div className="mb-1 text-muted">
+            <div className="mb-0 text-muted">
               {blogPost.month} {blogPost.day}
             </div>
             <p className="card-text mb-auto">{blogPost.excerpt}</p>
@@ -84,7 +97,7 @@ const Category = (props) => {
 
     for (let i = 0; i < list.length; i += 2) {
       result.push(
-        <div key={i} className="row mb-2">
+        <div key={i} className="row mb-0">
           <div className="col-md-6">{list[i]}</div>
           <div className="col-md-6">{list[i + 1] ? list[i + 1] : null}</div>
         </div>
@@ -103,7 +116,7 @@ const Category = (props) => {
       <Title>
         <h3 className="display-4 text-white">{currentCategory} Category</h3>
       </Title>
-      <div className="nav-scroller py-1 mb-2 text-white bg-dark">
+      <div className="nav-scroller py-1 mb-0 text-white bg-dark">
         <nav className="nav d-flex justify-content-between">
           <Link className="p-2 text-muted" to="/category/world">
             World
@@ -144,11 +157,13 @@ const Category = (props) => {
         </nav>
       </div>
       <Content className="text-white bg-dark">{getCategoryBlogs()}</Content>
-      <p>
-        <Link to="/blog" className="font-weight-bold">
-          Back to Blogs
-        </Link>
-      </p>
+      <BackButton>
+        <p>
+          <Link to="/blog" className="font-weight-bold">
+            Back to Blogs
+          </Link>
+        </p>
+      </BackButton>
     </Section>
   );
 };

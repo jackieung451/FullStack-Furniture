@@ -2,8 +2,8 @@ from django.db import models
 from datetime import datetime
 from django.template.defaultfilters import slugify
 
-from ckeditor.fields import RichTextField
-from ckeditor_uploader.fields import RichTextUploadingField
+# from ckeditor.fields import RichTextField
+# from ckeditor_uploader.fields import RichTextUploadingField
 # from tinymce import models as tinymce_models
 
 
@@ -56,7 +56,7 @@ class BlogPost(models.Model):
     month = models.CharField(max_length=3)
     day = models.CharField(max_length=2)
     upload = models.ImageField(upload_to='images/', null=True, blank=True)
-    content = RichTextUploadingField()
+    content = models.TextField()
     featured = models.BooleanField(default=False)
     date_created = models.DateTimeField(default=datetime.now, blank=True)
 

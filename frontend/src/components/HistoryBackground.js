@@ -20,9 +20,14 @@ const Section = styled.section`
   height: 100%;
   ${"" /* padding-top: 20rem; */}
 
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1401px) {
     padding-top: 14rem;
   }
+
+  @media screen and (min-width: 769px) and (max-width: 1400px) {
+    padding-top: 10rem;
+  }
+
   @media screen and (max-width: 768px) {
     padding-top: 8rem;
   }
@@ -110,7 +115,7 @@ const HeroContent = styled.div`
   max-width: 1600px;
   width: calc{100% - 100px};
   color: #fff;
-;
+
 
 img{
   ${"" /* margin-top: 6.75rem; */}
@@ -124,13 +129,9 @@ img{
     @media screen and (min-width: 1024px) {
       padding-top: 5rem;
       ${"" /* padding-bottom: 4.5rem; */}
-
-  }
-
+    }
     @media screen and (max-width: 768px) {
       padding-top: 0rem;
-
-      
   }
 
 }
@@ -142,7 +143,7 @@ h1{
   text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
   display: flex;
   justify-content: center;
-  margin-top: 5rem;
+  margin-top: 3rem;
   
   @media screen and (max-width: 375px) {
       ${
@@ -155,12 +156,15 @@ h1{
     "" /* dislay: flex;
   align-items: center; */
   }
+
 }`;
+
 const Container = styled.div`
   height: 100%;
   width: 100%;
   ${"" /* padding: 2rem 1rem; */}
 `;
+
 // const Heading = styled.div`
 //   font-size: 1.5rem;
 //   ${"" /* padding: 2rem 1rem; */}
@@ -202,6 +206,7 @@ const InfoWrap = styled.div`
   h2 {
     padding: 6rem 0 0 0;
     margin-bottom: 1rem;
+    margin-top: 2rem;
     font-weight: 400;
     color: #fff;
   }
