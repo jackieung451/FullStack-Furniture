@@ -25,7 +25,12 @@ SECRET_KEY = '9lzxal=y%^vdxtai$zgvzxxl4=ppp__11o904lv7x*a^r8$o1i'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+
+# The simplest case: just add the domain name(s) and IP addresses of your Django server
+# ALLOWED_HOSTS = [ 'example.com', '203.0.113.5']
+# To respond to 'example.com' and any subdomains, start the domain with a dot
+# ALLOWED_HOSTS = ['.example.com', '203.0.113.5']
+ALLOWED_HOSTS = ['143.198.146.185','lanayaritfurniture.com']
 
 
 # Application definition
@@ -93,10 +98,11 @@ WSGI_APPLICATION = 'blog_main.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgres',
-        'USER': 'postgres',
+        'NAME': 'lanayaritfurniture',
+        'USER': 'jackie',
         'PASSWORD': '123',
         'HOST': 'localhost'
+	
     }
 }
 
