@@ -2,6 +2,7 @@ from django.db import models
 from datetime import datetime
 from django.template.defaultfilters import slugify
 
+
 class Categories(models.TextChoices):
     WORLD = 'world'
     ENVIRONMENT = 'environment'
