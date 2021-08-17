@@ -2,30 +2,6 @@ from django.db import models
 from datetime import datetime
 from django.template.defaultfilters import slugify
 
-# from ckeditor.fields import RichTextField
-# from ckeditor_uploader.fields import RichTextUploadingField
-# from tinymce import models as tinymce_models
-
-
-# from django import forms
-# from tinymce.widgets import TinyMCE
-# from .models import _your_model_
-# from tinymce.models import HTMLField   
-  
-# class TinyMCEWidget(TinyMCE):
-#     def use_required_attribute(self, *args):
-#         return False
-  
-  
-# class PostForm(forms.ModelForm):
-#     content = forms.CharField(
-#         widget=TinyMCEWidget(
-#             attrs={'required': False, 'cols': 30, 'rows': 10}
-#         )
-#     )
-#     class Meta:
-#         model = _your_model_
-#         fields = '__all__'
 
 class Categories(models.TextChoices):
     WORLD = 'world'
@@ -41,11 +17,7 @@ class Categories(models.TextChoices):
     STYLE = 'style'
     TRAVEL = 'travel'
 
-# class Image(models.Model):
-#     content = models.ForeignKey(contentimage, on_delete=PROTECT)
-#     title = models.CharField(max_length=200)
-#     image = models.ImageField(blank=True, upload_to='media/')    
-#     description = models.TextField()
+
 
 class BlogPost(models.Model):
     title = models.CharField(max_length=50)
