@@ -30,7 +30,7 @@ DEBUG = True
 # ALLOWED_HOSTS = [ 'example.com', '203.0.113.5']
 # To respond to 'example.com' and any subdomains, start the domain with a dot
 # ALLOWED_HOSTS = ['.example.com', '203.0.113.5']
-ALLOWED_HOSTS = ['143.198.146.185','lanayaritfurniture.com']
+ALLOWED_HOSTS = ['143.198.146.185','lanayaritfurniture.com', 'www.lanayaritfurniture.com']
 
 
 # Application definition
@@ -166,7 +166,9 @@ SUMMERNOTE_THEME = 'bs4'
 
 
 
-CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_ALLOW_ALL = False
 
-
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:3000',
+)
 

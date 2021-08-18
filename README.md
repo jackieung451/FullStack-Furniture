@@ -13,3 +13,5 @@ In order to test out this project, follow these steps:
 - in backend/blog_main/settings.py, under DATABASES, set the PASSWORD field to your database password
 
 In conclusion, this project highlights the integration of Python and JavaScript for a Furniture Store website that is expanding its ideas and products to better serve its community.
+
+This is a test.
