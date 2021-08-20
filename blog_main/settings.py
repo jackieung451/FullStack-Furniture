@@ -69,7 +69,7 @@ ROOT_URLCONF = 'blog_main.urls'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'FullStackFurniture',
+        'NAME': 'fullstackfurniture',
         'USER': 'jackie',
         'PASSWORD': '123',
         'HOST': 'localhost'
