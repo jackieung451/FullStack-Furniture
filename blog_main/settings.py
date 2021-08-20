@@ -66,6 +66,18 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'blog_main.urls'
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'FullStackFurniture',
+        'USER': 'jackie',
+        'PASSWORD': '123',
+        'HOST': 'localhost'
+        
+    }
+}
+
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -88,16 +100,7 @@ WSGI_APPLICATION = 'blog_main.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'lanayaritfurniture',
-        'USER': 'jackie',
-        'PASSWORD': '123',
-        'HOST': 'localhost'
-	
-    }
-}
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -171,4 +174,9 @@ CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000',
 )
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
 
