@@ -2,9 +2,15 @@
 // Inserts shortcut buttons after all of the following:
 //     <input type="text" class="vDateField">
 //     <input type="text" class="vTimeField">
+<<<<<<< HEAD
 'use strict';
 {
     const DateTimeShortcuts = {
+=======
+(function() {
+    'use strict';
+    var DateTimeShortcuts = {
+>>>>>>> 0fae261fed583391b8fa4374bf2b1eb1d844b200
         calendars: [],
         calendarInputs: [],
         clockInputs: [],
@@ -28,6 +34,7 @@
         timezoneWarningClass: 'timezonewarning', // class of the warning for timezone mismatch
         timezoneOffset: 0,
         init: function() {
+<<<<<<< HEAD
             const serverOffset = document.body.dataset.adminUtcOffset;
             if (serverOffset) {
                 const localOffset = new Date().getTimezoneOffset() * -60;
@@ -40,6 +47,23 @@
                     DateTimeShortcuts.addTimezoneWarning(inp);
                 }
                 else if (inp.type === 'text' && inp.classList.contains('vDateField')) {
+=======
+            var body = document.getElementsByTagName('body')[0];
+            var serverOffset = body.getAttribute('data-admin-utc-offset');
+            if (serverOffset) {
+                var localOffset = new Date().getTimezoneOffset() * -60;
+                DateTimeShortcuts.timezoneOffset = localOffset - serverOffset;
+            }
+
+            var inputs = document.getElementsByTagName('input');
+            for (var i = 0; i < inputs.length; i++) {
+                var inp = inputs[i];
+                if (inp.getAttribute('type') === 'text' && inp.className.match(/vTimeField/)) {
+                    DateTimeShortcuts.addClock(inp);
+                    DateTimeShortcuts.addTimezoneWarning(inp);
+                }
+                else if (inp.getAttribute('type') === 'text' && inp.className.match(/vDateField/)) {
+>>>>>>> 0fae261fed583391b8fa4374bf2b1eb1d844b200
                     DateTimeShortcuts.addCalendar(inp);
                     DateTimeShortcuts.addTimezoneWarning(inp);
                 }
@@ -47,10 +71,18 @@
         },
         // Return the current time while accounting for the server timezone.
         now: function() {
+<<<<<<< HEAD
             const serverOffset = document.body.dataset.adminUtcOffset;
             if (serverOffset) {
                 const localNow = new Date();
                 const localOffset = localNow.getTimezoneOffset() * -60;
+=======
+            var body = document.getElementsByTagName('body')[0];
+            var serverOffset = body.getAttribute('data-admin-utc-offset');
+            if (serverOffset) {
+                var localNow = new Date();
+                var localOffset = localNow.getTimezoneOffset() * -60;
+>>>>>>> 0fae261fed583391b8fa4374bf2b1eb1d844b200
                 localNow.setTime(localNow.getTime() + 1000 * (serverOffset - localOffset));
                 return localNow;
             } else {
@@ -59,8 +91,13 @@
         },
         // Add a warning when the time zone in the browser and backend do not match.
         addTimezoneWarning: function(inp) {
+<<<<<<< HEAD
             const warningClass = DateTimeShortcuts.timezoneWarningClass;
             let timezoneOffset = DateTimeShortcuts.timezoneOffset / 3600;
+=======
+            var warningClass = DateTimeShortcuts.timezoneWarningClass;
+            var timezoneOffset = DateTimeShortcuts.timezoneOffset / 3600;
+>>>>>>> 0fae261fed583391b8fa4374bf2b1eb1d844b200
 
             // Only warn if there is a time zone mismatch.
             if (!timezoneOffset) {
@@ -72,7 +109,11 @@
                 return;
             }
 
+<<<<<<< HEAD
             let message;
+=======
+            var message;
+>>>>>>> 0fae261fed583391b8fa4374bf2b1eb1d844b200
             if (timezoneOffset > 0) {
                 message = ngettext(
                     'Note: You are %s hour ahead of server time.',
@@ -90,7 +131,11 @@
             }
             message = interpolate(message, [timezoneOffset]);
 
+<<<<<<< HEAD
             const warning = document.createElement('span');
+=======
+            var warning = document.createElement('span');
+>>>>>>> 0fae261fed583391b8fa4374bf2b1eb1d844b200
             warning.className = warningClass;
             warning.textContent = message;
             inp.parentNode.appendChild(document.createElement('br'));
@@ -98,23 +143,40 @@
         },
         // Add clock widget to a given field
         addClock: function(inp) {
+<<<<<<< HEAD
             const num = DateTimeShortcuts.clockInputs.length;
+=======
+            var num = DateTimeShortcuts.clockInputs.length;
+>>>>>>> 0fae261fed583391b8fa4374bf2b1eb1d844b200
             DateTimeShortcuts.clockInputs[num] = inp;
             DateTimeShortcuts.dismissClockFunc[num] = function() { DateTimeShortcuts.dismissClock(num); return true; };
 
             // Shortcut links (clock icon and "Now" link)
+<<<<<<< HEAD
             const shortcuts_span = document.createElement('span');
             shortcuts_span.className = DateTimeShortcuts.shortCutsClass;
             inp.parentNode.insertBefore(shortcuts_span, inp.nextSibling);
             const now_link = document.createElement('a');
             now_link.href = "#";
+=======
+            var shortcuts_span = document.createElement('span');
+            shortcuts_span.className = DateTimeShortcuts.shortCutsClass;
+            inp.parentNode.insertBefore(shortcuts_span, inp.nextSibling);
+            var now_link = document.createElement('a');
+            now_link.setAttribute('href', "#");
+>>>>>>> 0fae261fed583391b8fa4374bf2b1eb1d844b200
             now_link.textContent = gettext('Now');
             now_link.addEventListener('click', function(e) {
                 e.preventDefault();
                 DateTimeShortcuts.handleClockQuicklink(num, -1);
             });
+<<<<<<< HEAD
             const clock_link = document.createElement('a');
             clock_link.href = '#';
+=======
+            var clock_link = document.createElement('a');
+            clock_link.setAttribute('href', '#');
+>>>>>>> 0fae261fed583391b8fa4374bf2b1eb1d844b200
             clock_link.id = DateTimeShortcuts.clockLinkName + num;
             clock_link.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -148,32 +210,56 @@
             //     <p class="calendar-cancel"><a href="#">Cancel</a></p>
             // </div>
 
+<<<<<<< HEAD
             const clock_box = document.createElement('div');
             clock_box.style.display = 'none';
             clock_box.style.position = 'absolute';
             clock_box.className = 'clockbox module';
             clock_box.id = DateTimeShortcuts.clockDivName + num;
+=======
+            var clock_box = document.createElement('div');
+            clock_box.style.display = 'none';
+            clock_box.style.position = 'absolute';
+            clock_box.className = 'clockbox module';
+            clock_box.setAttribute('id', DateTimeShortcuts.clockDivName + num);
+>>>>>>> 0fae261fed583391b8fa4374bf2b1eb1d844b200
             document.body.appendChild(clock_box);
             clock_box.addEventListener('click', function(e) { e.stopPropagation(); });
 
             quickElement('h2', clock_box, gettext('Choose a time'));
+<<<<<<< HEAD
             const time_list = quickElement('ul', clock_box);
+=======
+            var time_list = quickElement('ul', clock_box);
+>>>>>>> 0fae261fed583391b8fa4374bf2b1eb1d844b200
             time_list.className = 'timelist';
             // The list of choices can be overridden in JavaScript like this:
             // DateTimeShortcuts.clockHours.name = [['3 a.m.', 3]];
             // where name is the name attribute of the <input>.
+<<<<<<< HEAD
             const name = typeof DateTimeShortcuts.clockHours[inp.name] === 'undefined' ? 'default_' : inp.name;
             DateTimeShortcuts.clockHours[name].forEach(function(element) {
                 const time_link = quickElement('a', quickElement('li', time_list), gettext(element[0]), 'href', '#');
+=======
+            var name = typeof DateTimeShortcuts.clockHours[inp.name] === 'undefined' ? 'default_' : inp.name;
+            DateTimeShortcuts.clockHours[name].forEach(function(element) {
+                var time_link = quickElement('a', quickElement('li', time_list), gettext(element[0]), 'href', '#');
+>>>>>>> 0fae261fed583391b8fa4374bf2b1eb1d844b200
                 time_link.addEventListener('click', function(e) {
                     e.preventDefault();
                     DateTimeShortcuts.handleClockQuicklink(num, element[1]);
                 });
             });
 
+<<<<<<< HEAD
             const cancel_p = quickElement('p', clock_box);
             cancel_p.className = 'calendar-cancel';
             const cancel_link = quickElement('a', cancel_p, gettext('Cancel'), 'href', '#');
+=======
+            var cancel_p = quickElement('p', clock_box);
+            cancel_p.className = 'calendar-cancel';
+            var cancel_link = quickElement('a', cancel_p, gettext('Cancel'), 'href', '#');
+>>>>>>> 0fae261fed583391b8fa4374bf2b1eb1d844b200
             cancel_link.addEventListener('click', function(e) {
                 e.preventDefault();
                 DateTimeShortcuts.dismissClock(num);
@@ -188,8 +274,13 @@
             });
         },
         openClock: function(num) {
+<<<<<<< HEAD
             const clock_box = document.getElementById(DateTimeShortcuts.clockDivName + num);
             const clock_link = document.getElementById(DateTimeShortcuts.clockLinkName + num);
+=======
+            var clock_box = document.getElementById(DateTimeShortcuts.clockDivName + num);
+            var clock_link = document.getElementById(DateTimeShortcuts.clockLinkName + num);
+>>>>>>> 0fae261fed583391b8fa4374bf2b1eb1d844b200
 
             // Recalculate the clockbox position
             // is it left-to-right or right-to-left layout ?
@@ -199,6 +290,11 @@
             else {
                 // since style's width is in em, it'd be tough to calculate
                 // px value of it. let's use an estimated px for now
+<<<<<<< HEAD
+=======
+                // TODO: IE returns wrong value for findPosX when in rtl mode
+                //       (it returns as it was left aligned), needs to be fixed.
+>>>>>>> 0fae261fed583391b8fa4374bf2b1eb1d844b200
                 clock_box.style.left = findPosX(clock_link) - 110 + 'px';
             }
             clock_box.style.top = Math.max(0, findPosY(clock_link) - 30) + 'px';
@@ -212,7 +308,11 @@
             document.removeEventListener('click', DateTimeShortcuts.dismissClockFunc[num]);
         },
         handleClockQuicklink: function(num, val) {
+<<<<<<< HEAD
             let d;
+=======
+            var d;
+>>>>>>> 0fae261fed583391b8fa4374bf2b1eb1d844b200
             if (val === -1) {
                 d = DateTimeShortcuts.now();
             }
@@ -225,24 +325,41 @@
         },
         // Add calendar widget to a given field.
         addCalendar: function(inp) {
+<<<<<<< HEAD
             const num = DateTimeShortcuts.calendars.length;
+=======
+            var num = DateTimeShortcuts.calendars.length;
+>>>>>>> 0fae261fed583391b8fa4374bf2b1eb1d844b200
 
             DateTimeShortcuts.calendarInputs[num] = inp;
             DateTimeShortcuts.dismissCalendarFunc[num] = function() { DateTimeShortcuts.dismissCalendar(num); return true; };
 
             // Shortcut links (calendar icon and "Today" link)
+<<<<<<< HEAD
             const shortcuts_span = document.createElement('span');
             shortcuts_span.className = DateTimeShortcuts.shortCutsClass;
             inp.parentNode.insertBefore(shortcuts_span, inp.nextSibling);
             const today_link = document.createElement('a');
             today_link.href = '#';
+=======
+            var shortcuts_span = document.createElement('span');
+            shortcuts_span.className = DateTimeShortcuts.shortCutsClass;
+            inp.parentNode.insertBefore(shortcuts_span, inp.nextSibling);
+            var today_link = document.createElement('a');
+            today_link.setAttribute('href', '#');
+>>>>>>> 0fae261fed583391b8fa4374bf2b1eb1d844b200
             today_link.appendChild(document.createTextNode(gettext('Today')));
             today_link.addEventListener('click', function(e) {
                 e.preventDefault();
                 DateTimeShortcuts.handleCalendarQuickLink(num, 0);
             });
+<<<<<<< HEAD
             const cal_link = document.createElement('a');
             cal_link.href = '#';
+=======
+            var cal_link = document.createElement('a');
+            cal_link.setAttribute('href', '#');
+>>>>>>> 0fae261fed583391b8fa4374bf2b1eb1d844b200
             cal_link.id = DateTimeShortcuts.calendarLinkName + num;
             cal_link.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -277,24 +394,41 @@
             //     </div>
             //     <p class="calendar-cancel"><a href="#">Cancel</a></p>
             // </div>
+<<<<<<< HEAD
             const cal_box = document.createElement('div');
             cal_box.style.display = 'none';
             cal_box.style.position = 'absolute';
             cal_box.className = 'calendarbox module';
             cal_box.id = DateTimeShortcuts.calendarDivName1 + num;
+=======
+            var cal_box = document.createElement('div');
+            cal_box.style.display = 'none';
+            cal_box.style.position = 'absolute';
+            cal_box.className = 'calendarbox module';
+            cal_box.setAttribute('id', DateTimeShortcuts.calendarDivName1 + num);
+>>>>>>> 0fae261fed583391b8fa4374bf2b1eb1d844b200
             document.body.appendChild(cal_box);
             cal_box.addEventListener('click', function(e) { e.stopPropagation(); });
 
             // next-prev links
+<<<<<<< HEAD
             const cal_nav = quickElement('div', cal_box);
             const cal_nav_prev = quickElement('a', cal_nav, '<', 'href', '#');
+=======
+            var cal_nav = quickElement('div', cal_box);
+            var cal_nav_prev = quickElement('a', cal_nav, '<', 'href', '#');
+>>>>>>> 0fae261fed583391b8fa4374bf2b1eb1d844b200
             cal_nav_prev.className = 'calendarnav-previous';
             cal_nav_prev.addEventListener('click', function(e) {
                 e.preventDefault();
                 DateTimeShortcuts.drawPrev(num);
             });
 
+<<<<<<< HEAD
             const cal_nav_next = quickElement('a', cal_nav, '>', 'href', '#');
+=======
+            var cal_nav_next = quickElement('a', cal_nav, '>', 'href', '#');
+>>>>>>> 0fae261fed583391b8fa4374bf2b1eb1d844b200
             cal_nav_next.className = 'calendarnav-next';
             cal_nav_next.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -302,15 +436,25 @@
             });
 
             // main box
+<<<<<<< HEAD
             const cal_main = quickElement('div', cal_box, '', 'id', DateTimeShortcuts.calendarDivName2 + num);
+=======
+            var cal_main = quickElement('div', cal_box, '', 'id', DateTimeShortcuts.calendarDivName2 + num);
+>>>>>>> 0fae261fed583391b8fa4374bf2b1eb1d844b200
             cal_main.className = 'calendar';
             DateTimeShortcuts.calendars[num] = new Calendar(DateTimeShortcuts.calendarDivName2 + num, DateTimeShortcuts.handleCalendarCallback(num));
             DateTimeShortcuts.calendars[num].drawCurrent();
 
             // calendar shortcuts
+<<<<<<< HEAD
             const shortcuts = quickElement('div', cal_box);
             shortcuts.className = 'calendar-shortcuts';
             let day_link = quickElement('a', shortcuts, gettext('Yesterday'), 'href', '#');
+=======
+            var shortcuts = quickElement('div', cal_box);
+            shortcuts.className = 'calendar-shortcuts';
+            var day_link = quickElement('a', shortcuts, gettext('Yesterday'), 'href', '#');
+>>>>>>> 0fae261fed583391b8fa4374bf2b1eb1d844b200
             day_link.addEventListener('click', function(e) {
                 e.preventDefault();
                 DateTimeShortcuts.handleCalendarQuickLink(num, -1);
@@ -329,9 +473,15 @@
             });
 
             // cancel bar
+<<<<<<< HEAD
             const cancel_p = quickElement('p', cal_box);
             cancel_p.className = 'calendar-cancel';
             const cancel_link = quickElement('a', cancel_p, gettext('Cancel'), 'href', '#');
+=======
+            var cancel_p = quickElement('p', cal_box);
+            cancel_p.className = 'calendar-cancel';
+            var cancel_link = quickElement('a', cancel_p, gettext('Cancel'), 'href', '#');
+>>>>>>> 0fae261fed583391b8fa4374bf2b1eb1d844b200
             cancel_link.addEventListener('click', function(e) {
                 e.preventDefault();
                 DateTimeShortcuts.dismissCalendar(num);
@@ -345,18 +495,32 @@
             });
         },
         openCalendar: function(num) {
+<<<<<<< HEAD
             const cal_box = document.getElementById(DateTimeShortcuts.calendarDivName1 + num);
             const cal_link = document.getElementById(DateTimeShortcuts.calendarLinkName + num);
             const inp = DateTimeShortcuts.calendarInputs[num];
+=======
+            var cal_box = document.getElementById(DateTimeShortcuts.calendarDivName1 + num);
+            var cal_link = document.getElementById(DateTimeShortcuts.calendarLinkName + num);
+            var inp = DateTimeShortcuts.calendarInputs[num];
+>>>>>>> 0fae261fed583391b8fa4374bf2b1eb1d844b200
 
             // Determine if the current value in the input has a valid date.
             // If so, draw the calendar with that date's year and month.
             if (inp.value) {
+<<<<<<< HEAD
                 const format = get_format('DATE_INPUT_FORMATS')[0];
                 const selected = inp.value.strptime(format);
                 const year = selected.getUTCFullYear();
                 const month = selected.getUTCMonth() + 1;
                 const re = /\d{4}/;
+=======
+                var format = get_format('DATE_INPUT_FORMATS')[0];
+                var selected = inp.value.strptime(format);
+                var year = selected.getUTCFullYear();
+                var month = selected.getUTCMonth() + 1;
+                var re = /\d{4}/;
+>>>>>>> 0fae261fed583391b8fa4374bf2b1eb1d844b200
                 if (re.test(year.toString()) && month >= 1 && month <= 12) {
                     DateTimeShortcuts.calendars[num].drawDate(month, year, selected);
                 }
@@ -370,6 +534,11 @@
             else {
                 // since style's width is in em, it'd be tough to calculate
                 // px value of it. let's use an estimated px for now
+<<<<<<< HEAD
+=======
+                // TODO: IE returns wrong value for findPosX when in rtl mode
+                //       (it returns as it was left aligned), needs to be fixed.
+>>>>>>> 0fae261fed583391b8fa4374bf2b1eb1d844b200
                 cal_box.style.left = findPosX(cal_link) - 180 + 'px';
             }
             cal_box.style.top = Math.max(0, findPosY(cal_link) - 75) + 'px';
@@ -388,7 +557,11 @@
             DateTimeShortcuts.calendars[num].drawNextMonth();
         },
         handleCalendarCallback: function(num) {
+<<<<<<< HEAD
             let format = get_format('DATE_INPUT_FORMATS')[0];
+=======
+            var format = get_format('DATE_INPUT_FORMATS')[0];
+>>>>>>> 0fae261fed583391b8fa4374bf2b1eb1d844b200
             // the format needs to be escaped a little
             format = format.replace('\\', '\\\\')
                 .replace('\r', '\\r')
@@ -402,7 +575,11 @@
             };
         },
         handleCalendarQuickLink: function(num, offset) {
+<<<<<<< HEAD
             const d = DateTimeShortcuts.now();
+=======
+            var d = DateTimeShortcuts.now();
+>>>>>>> 0fae261fed583391b8fa4374bf2b1eb1d844b200
             d.setDate(d.getDate() + offset);
             DateTimeShortcuts.calendarInputs[num].value = d.strftime(get_format('DATE_INPUT_FORMATS')[0]);
             DateTimeShortcuts.calendarInputs[num].focus();
@@ -412,4 +589,8 @@
 
     window.addEventListener('load', DateTimeShortcuts.init);
     window.DateTimeShortcuts = DateTimeShortcuts;
+<<<<<<< HEAD
 }
+=======
+})();
+>>>>>>> 0fae261fed583391b8fa4374bf2b1eb1d844b200

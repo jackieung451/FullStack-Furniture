@@ -1,7 +1,14 @@
 /*global XRegExp*/
+<<<<<<< HEAD
 'use strict';
 {
     const LATIN_MAP = {
+=======
+(function() {
+    'use strict';
+
+    var LATIN_MAP = {
+>>>>>>> 0fae261fed583391b8fa4374bf2b1eb1d844b200
         'À': 'A', 'Á': 'A', 'Â': 'A', 'Ã': 'A', 'Ä': 'A', 'Å': 'A', 'Æ': 'AE',
         'Ç': 'C', 'È': 'E', 'É': 'E', 'Ê': 'E', 'Ë': 'E', 'Ì': 'I', 'Í': 'I',
         'Î': 'I', 'Ï': 'I', 'Ð': 'D', 'Ñ': 'N', 'Ò': 'O', 'Ó': 'O', 'Ô': 'O',
@@ -13,10 +20,17 @@
         'ö': 'o', 'ő': 'o', 'ø': 'o', 'ù': 'u', 'ú': 'u', 'û': 'u', 'ü': 'u',
         'ű': 'u', 'ý': 'y', 'þ': 'th', 'ÿ': 'y'
     };
+<<<<<<< HEAD
     const LATIN_SYMBOLS_MAP = {
         '©': '(c)'
     };
     const GREEK_MAP = {
+=======
+    var LATIN_SYMBOLS_MAP = {
+        '©': '(c)'
+    };
+    var GREEK_MAP = {
+>>>>>>> 0fae261fed583391b8fa4374bf2b1eb1d844b200
         'α': 'a', 'β': 'b', 'γ': 'g', 'δ': 'd', 'ε': 'e', 'ζ': 'z', 'η': 'h',
         'θ': '8', 'ι': 'i', 'κ': 'k', 'λ': 'l', 'μ': 'm', 'ν': 'n', 'ξ': '3',
         'ο': 'o', 'π': 'p', 'ρ': 'r', 'σ': 's', 'τ': 't', 'υ': 'y', 'φ': 'f',
@@ -28,6 +42,7 @@
         'Φ': 'F', 'Χ': 'X', 'Ψ': 'PS', 'Ω': 'W', 'Ά': 'A', 'Έ': 'E', 'Ί': 'I',
         'Ό': 'O', 'Ύ': 'Y', 'Ή': 'H', 'Ώ': 'W', 'Ϊ': 'I', 'Ϋ': 'Y'
     };
+<<<<<<< HEAD
     const TURKISH_MAP = {
         'ş': 's', 'Ş': 'S', 'ı': 'i', 'İ': 'I', 'ç': 'c', 'Ç': 'C', 'ü': 'u',
         'Ü': 'U', 'ö': 'o', 'Ö': 'O', 'ğ': 'g', 'Ğ': 'G'
@@ -37,6 +52,17 @@
         'Ă': 'A', 'Î': 'I', 'Ș': 'S', 'Ț': 'T', 'Â': 'A'
     };
     const RUSSIAN_MAP = {
+=======
+    var TURKISH_MAP = {
+        'ş': 's', 'Ş': 'S', 'ı': 'i', 'İ': 'I', 'ç': 'c', 'Ç': 'C', 'ü': 'u',
+        'Ü': 'U', 'ö': 'o', 'Ö': 'O', 'ğ': 'g', 'Ğ': 'G'
+    };
+    var ROMANIAN_MAP = {
+        'ă': 'a', 'î': 'i', 'ș': 's', 'ț': 't', 'â': 'a',
+        'Ă': 'A', 'Î': 'I', 'Ș': 'S', 'Ț': 'T', 'Â': 'A'
+    };
+    var RUSSIAN_MAP = {
+>>>>>>> 0fae261fed583391b8fa4374bf2b1eb1d844b200
         'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd', 'е': 'e', 'ё': 'yo',
         'ж': 'zh', 'з': 'z', 'и': 'i', 'й': 'j', 'к': 'k', 'л': 'l', 'м': 'm',
         'н': 'n', 'о': 'o', 'п': 'p', 'р': 'r', 'с': 's', 'т': 't', 'у': 'u',
@@ -48,16 +74,28 @@
         'Ф': 'F', 'Х': 'H', 'Ц': 'C', 'Ч': 'Ch', 'Ш': 'Sh', 'Щ': 'Sh', 'Ъ': '',
         'Ы': 'Y', 'Ь': '', 'Э': 'E', 'Ю': 'Yu', 'Я': 'Ya'
     };
+<<<<<<< HEAD
     const UKRAINIAN_MAP = {
         'Є': 'Ye', 'І': 'I', 'Ї': 'Yi', 'Ґ': 'G', 'є': 'ye', 'і': 'i',
         'ї': 'yi', 'ґ': 'g'
     };
     const CZECH_MAP = {
+=======
+    var UKRAINIAN_MAP = {
+        'Є': 'Ye', 'І': 'I', 'Ї': 'Yi', 'Ґ': 'G', 'є': 'ye', 'і': 'i',
+        'ї': 'yi', 'ґ': 'g'
+    };
+    var CZECH_MAP = {
+>>>>>>> 0fae261fed583391b8fa4374bf2b1eb1d844b200
         'č': 'c', 'ď': 'd', 'ě': 'e', 'ň': 'n', 'ř': 'r', 'š': 's', 'ť': 't',
         'ů': 'u', 'ž': 'z', 'Č': 'C', 'Ď': 'D', 'Ě': 'E', 'Ň': 'N', 'Ř': 'R',
         'Š': 'S', 'Ť': 'T', 'Ů': 'U', 'Ž': 'Z'
     };
+<<<<<<< HEAD
     const SLOVAK_MAP = {
+=======
+    var SLOVAK_MAP = {
+>>>>>>> 0fae261fed583391b8fa4374bf2b1eb1d844b200
         'á': 'a', 'ä': 'a', 'č': 'c', 'ď': 'd', 'é': 'e', 'í': 'i', 'ľ': 'l',
         'ĺ': 'l', 'ň': 'n', 'ó': 'o', 'ô': 'o', 'ŕ': 'r', 'š': 's', 'ť': 't',
         'ú': 'u', 'ý': 'y', 'ž': 'z',
@@ -65,40 +103,68 @@
         'Ĺ': 'L', 'Ň': 'N', 'Ó': 'O', 'Ô': 'O', 'Ŕ': 'R', 'Š': 'S', 'Ť': 'T',
         'Ú': 'U', 'Ý': 'Y', 'Ž': 'Z'
     };
+<<<<<<< HEAD
     const POLISH_MAP = {
+=======
+    var POLISH_MAP = {
+>>>>>>> 0fae261fed583391b8fa4374bf2b1eb1d844b200
         'ą': 'a', 'ć': 'c', 'ę': 'e', 'ł': 'l', 'ń': 'n', 'ó': 'o', 'ś': 's',
         'ź': 'z', 'ż': 'z',
         'Ą': 'A', 'Ć': 'C', 'Ę': 'E', 'Ł': 'L', 'Ń': 'N', 'Ó': 'O', 'Ś': 'S',
         'Ź': 'Z', 'Ż': 'Z'
     };
+<<<<<<< HEAD
     const LATVIAN_MAP = {
+=======
+    var LATVIAN_MAP = {
+>>>>>>> 0fae261fed583391b8fa4374bf2b1eb1d844b200
         'ā': 'a', 'č': 'c', 'ē': 'e', 'ģ': 'g', 'ī': 'i', 'ķ': 'k', 'ļ': 'l',
         'ņ': 'n', 'š': 's', 'ū': 'u', 'ž': 'z',
         'Ā': 'A', 'Č': 'C', 'Ē': 'E', 'Ģ': 'G', 'Ī': 'I', 'Ķ': 'K', 'Ļ': 'L',
         'Ņ': 'N', 'Š': 'S', 'Ū': 'U', 'Ž': 'Z'
     };
+<<<<<<< HEAD
     const ARABIC_MAP = {
+=======
+    var ARABIC_MAP = {
+>>>>>>> 0fae261fed583391b8fa4374bf2b1eb1d844b200
         'أ': 'a', 'ب': 'b', 'ت': 't', 'ث': 'th', 'ج': 'g', 'ح': 'h', 'خ': 'kh', 'د': 'd',
         'ذ': 'th', 'ر': 'r', 'ز': 'z', 'س': 's', 'ش': 'sh', 'ص': 's', 'ض': 'd', 'ط': 't',
         'ظ': 'th', 'ع': 'aa', 'غ': 'gh', 'ف': 'f', 'ق': 'k', 'ك': 'k', 'ل': 'l', 'م': 'm',
         'ن': 'n', 'ه': 'h', 'و': 'o', 'ي': 'y'
     };
+<<<<<<< HEAD
     const LITHUANIAN_MAP = {
+=======
+    var LITHUANIAN_MAP = {
+>>>>>>> 0fae261fed583391b8fa4374bf2b1eb1d844b200
         'ą': 'a', 'č': 'c', 'ę': 'e', 'ė': 'e', 'į': 'i', 'š': 's', 'ų': 'u',
         'ū': 'u', 'ž': 'z',
         'Ą': 'A', 'Č': 'C', 'Ę': 'E', 'Ė': 'E', 'Į': 'I', 'Š': 'S', 'Ų': 'U',
         'Ū': 'U', 'Ž': 'Z'
     };
+<<<<<<< HEAD
     const SERBIAN_MAP = {
+=======
+    var SERBIAN_MAP = {
+>>>>>>> 0fae261fed583391b8fa4374bf2b1eb1d844b200
         'ђ': 'dj', 'ј': 'j', 'љ': 'lj', 'њ': 'nj', 'ћ': 'c', 'џ': 'dz',
         'đ': 'dj', 'Ђ': 'Dj', 'Ј': 'j', 'Љ': 'Lj', 'Њ': 'Nj', 'Ћ': 'C',
         'Џ': 'Dz', 'Đ': 'Dj'
     };
+<<<<<<< HEAD
     const AZERBAIJANI_MAP = {
         'ç': 'c', 'ə': 'e', 'ğ': 'g', 'ı': 'i', 'ö': 'o', 'ş': 's', 'ü': 'u',
         'Ç': 'C', 'Ə': 'E', 'Ğ': 'G', 'İ': 'I', 'Ö': 'O', 'Ş': 'S', 'Ü': 'U'
     };
     const GEORGIAN_MAP = {
+=======
+    var AZERBAIJANI_MAP = {
+        'ç': 'c', 'ə': 'e', 'ğ': 'g', 'ı': 'i', 'ö': 'o', 'ş': 's', 'ü': 'u',
+        'Ç': 'C', 'Ə': 'E', 'Ğ': 'G', 'İ': 'I', 'Ö': 'O', 'Ş': 'S', 'Ü': 'U'
+    };
+    var GEORGIAN_MAP = {
+>>>>>>> 0fae261fed583391b8fa4374bf2b1eb1d844b200
         'ა': 'a', 'ბ': 'b', 'გ': 'g', 'დ': 'd', 'ე': 'e', 'ვ': 'v', 'ზ': 'z',
         'თ': 't', 'ი': 'i', 'კ': 'k', 'ლ': 'l', 'მ': 'm', 'ნ': 'n', 'ო': 'o',
         'პ': 'p', 'ჟ': 'j', 'რ': 'r', 'ს': 's', 'ტ': 't', 'უ': 'u', 'ფ': 'f',
@@ -106,7 +172,11 @@
         'წ': 'w', 'ჭ': 'ch', 'ხ': 'x', 'ჯ': 'j', 'ჰ': 'h'
     };
 
+<<<<<<< HEAD
     const ALL_DOWNCODE_MAPS = [
+=======
+    var ALL_DOWNCODE_MAPS = [
+>>>>>>> 0fae261fed583391b8fa4374bf2b1eb1d844b200
         LATIN_MAP,
         LATIN_SYMBOLS_MAP,
         GREEK_MAP,
@@ -125,16 +195,38 @@
         GEORGIAN_MAP
     ];
 
+<<<<<<< HEAD
     const Downcoder = {
+=======
+    var Downcoder = {
+>>>>>>> 0fae261fed583391b8fa4374bf2b1eb1d844b200
         'Initialize': function() {
             if (Downcoder.map) { // already made
                 return;
             }
             Downcoder.map = {};
+<<<<<<< HEAD
             for (const lookup of ALL_DOWNCODE_MAPS) {
                 Object.assign(Downcoder.map, lookup);
             }
             Downcoder.regex = new RegExp(Object.keys(Downcoder.map).join('|'), 'g');
+=======
+            Downcoder.chars = [];
+            for (var i = 0; i < ALL_DOWNCODE_MAPS.length; i++) {
+                var lookup = ALL_DOWNCODE_MAPS[i];
+                for (var c in lookup) {
+                    if (lookup.hasOwnProperty(c)) {
+                        Downcoder.map[c] = lookup[c];
+                    }
+                }
+            }
+            for (var k in Downcoder.map) {
+                if (Downcoder.map.hasOwnProperty(k)) {
+                    Downcoder.chars.push(k);
+                }
+            }
+            Downcoder.regex = new RegExp(Downcoder.chars.join('|'), 'g');
+>>>>>>> 0fae261fed583391b8fa4374bf2b1eb1d844b200
         }
     };
 
@@ -148,10 +240,30 @@
 
     function URLify(s, num_chars, allowUnicode) {
         // changes, e.g., "Petty theft" to "petty-theft"
+<<<<<<< HEAD
         if (!allowUnicode) {
             s = downcode(s);
         }
         s = s.toLowerCase(); // convert to lowercase
+=======
+        // remove all these words from the string before urlifying
+        if (!allowUnicode) {
+            s = downcode(s);
+        }
+        var hasUnicodeChars = /[^\u0000-\u007f]/.test(s);
+        // Remove English words only if the string contains ASCII (English)
+        // characters.
+        if (!hasUnicodeChars) {
+            var removeList = [
+                "a", "an", "as", "at", "before", "but", "by", "for", "from",
+                "is", "in", "into", "like", "of", "off", "on", "onto", "per",
+                "since", "than", "the", "this", "that", "to", "up", "via",
+                "with"
+            ];
+            var r = new RegExp('\\b(' + removeList.join('|') + ')\\b', 'gi');
+            s = s.replace(r, '');
+        }
+>>>>>>> 0fae261fed583391b8fa4374bf2b1eb1d844b200
         // if downcode doesn't hit, the char will be stripped here
         if (allowUnicode) {
             // Keep Unicode letters including both lowercase and uppercase
@@ -164,7 +276,14 @@
         s = s.replace(/[-\s]+/g, '-'); // convert spaces to hyphens
         s = s.substring(0, num_chars); // trim to first num_chars chars
         s = s.replace(/-+$/g, ''); // trim any trailing hyphens
+<<<<<<< HEAD
         return s;
     }
     window.URLify = URLify;
 }
+=======
+        return s.toLowerCase(); // convert to lowercase
+    }
+    window.URLify = URLify;
+})();
+>>>>>>> 0fae261fed583391b8fa4374bf2b1eb1d844b200

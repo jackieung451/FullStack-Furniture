@@ -40,7 +40,11 @@ td.nested > table {
   margin: 0;
 }
 
+<<<<<<< HEAD
 form select, form input:not([type=checkbox]), form textarea {
+=======
+form select, form input, form textarea {
+>>>>>>> 0fae261fed583391b8fa4374bf2b1eb1d844b200
   width: 90%;
 }
 
